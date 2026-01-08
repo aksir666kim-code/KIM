@@ -1,0 +1,6 @@
+staticSites:
+  - name: kim-static-site
+    repo: aksir666kim-code/KIM
+    branch: main
+    buildCommand: ""
+    staticPublishPath: "/"
