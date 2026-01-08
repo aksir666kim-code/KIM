@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简历 - Sarawut Buaphat (ศราวุธ บัวพัฒน์)</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #00bfff;
+            --glow-color: rgba(0, 191, 255, 0.6);
+        }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            background-image: url('images/video/ซามุไร.gif');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: -2;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            z-index: -1;
+        }
+        .sidebar {
+            width: 300px;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+        .sidebar:hover {
+            box-shadow: 0 0 30px var(--glow-color);
+            transform: translateY(-5px);
+        }
+        .sidebar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 0 20px var(--glow-color);
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+        .sidebar img:hover {
+            transform: scale(1.05);
+        }
+        .sidebar h1 {
+            margin: 20px 0 10px;
+            font-size: 2.2em;
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+        .contact a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .contact a:hover {
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+        .skills {
+            margin-top: 30px;
+        }
+        .skills h3 {
+            margin-bottom: 25px;
+            font-size: 1.5em;
+            text-shadow: 0 0 8px var(--accent-color);
+        }
+        .skill-item {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .skill-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+            font-weight: 500;
+        }
+        .skill-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+        }
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00bfff, #00ffff);
+            border-radius: 6px;
+            box-shadow: 0 0 15px var(--glow-color);
+            width: 0;
+            transition: width 1.5s ease-in-out, box-shadow 0.4s;
+        }
+        .skill-item:hover .skill-fill {
+            box-shadow: 0 0 25px var(--glow-color);
+        }
+        .animate .skill-fill {
+            width: var(--percent) !important;
+        }
+        .main {
+            flex: 1;
+            padding: 40px;
+            max-width: 800px;
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.6);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+        .main:hover {
+            box-shadow: 0 0 35px var(--glow-color);
+        }
+        h2 {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            text-shadow: 0 0 8px var(--accent-color);
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+        .typing-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background-color: var(--accent-color);
+            margin-left: 2px;
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; padding: 20px; }
+            .main { margin: 10px; border-radius: 10px; }
+        }
+        @media print {
+            body { background: white !important; color: black; }
+            body::before, #particles-js { display: none; }
+            .sidebar, .main { background: none !important; backdrop-filter: none !important; box-shadow: none !important; }
+            .cursor { display: none; }
+            a { color: black; }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <aside class="sidebar">
+        <img src="images/รูปคน.jpg" alt="Sarawut (Kim)的头像">
+        <h1>Sarawut Buaphat</h1>
+        <p>英文名：Sarawut Buaphat</p>
+        <p>昵称：Kim</p>
+        <p>嵌入式系统 • 机器人 • 程序员</p>
+        <div class="contact">
+            <p>出生日期：2006年8月4日（20岁）</p>
+            <p>邮箱：aksir666kim@gmail.com</p>
+            <p>电话：086-378-7002</p>
+            <p>Line：yourlineid</p>
+            <p><a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
+            <p><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
+        </div>
+
+        <div class="skills">
+            <h3>主要技能</h3>
+            <div class="skill-item">
+                <div class="skill-label">
+                    <span>机器人设计与编程控制</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="--percent: 90%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label">
+                    <span>嵌入式系统（Arduino、ESP32 等）</span>
+                    <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="--percent: 85%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label">
+                    <span>C/C++ • Python</span>
+                    <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="--percent: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label">
+                    <span>电子电路设计与制作</span>
+                    <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="--percent: 85%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label">
+                    <span>自主解决问题与自学能力</span>
+                    <span>95%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="--percent: 95%;"></div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <section>
+            <h2>关于我</h2>
+            <p class="typing-container">
+                <span id="typing"></span><span class="cursor"></span>
+            </p>
+        </section>
+
+        <section>
+            <h2>经验 / 突出项目</h2>
+            <div class="job">
+                <h3>个人机器人与嵌入式系统项目</h3>
+                <p>2023年 - 至今</p>
+                <ul>
+                    <li>使用 Arduino 和 ESP32 设计并编程控制多种机器人</li>
+                    <li>开发物联网（IoT）系统，用于网络设备控制</li>
+                    <li>制作电子电路及各种原型设备</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>教育背景</h2>
+            <div class="edu">
+                <h3>高等职业证书（ปวส.）机电一体化与机器人专业</h3>
+                <p>芭堤雅技术学院</p>
+                <p>2025学年 - 至今（一年级）</p>
+            </div>
+            <div class="edu">
+                <h3>职业证书（ปวช.）</h3>
+                <p>芭堤雅技术学院</p>
+                <p>毕业年份：2024年</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>兴趣爱好</h2>
+            <ul>
+                <li>自己动手制作新事物</li>
+                <li>编程与自动化系统开发</li>
+                <li>深入研究感兴趣的话题与真相</li>
+                <li>新技术、机器人与创新</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        const text = "我是Sarawut Buaphat（小名：Kim），20岁，热爱发明创造和设计软硬件结合的系统，特别是机器人编程控制和物联网设备。我喜欢挑战复杂问题，业余爱好是深入探究世界各种真相和信息。";
+        const typingElement = document.getElementById("typing");
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                typingElement.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            } else {
+                document.querySelector(".cursor").style.display = "none";
+            }
+        }
+
+        window.onload = function() {
+            typeWriter();
+
+            document.querySelector('.skills').classList.add('animate');
+
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#00bfff" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5, "random": true },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#00bfff", "opacity": 0.3, "width": 1 },
+                    "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { "onhover": { "enable": true, "mode": "repulse" }, "resize": true }
+                },
+                "retina_detect": true
+            });
+        };
+    </script>
+</body>
+</html>
