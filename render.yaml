@@ -3,4 +3,5 @@ staticSites:
     repo: aksir666kim-code/KIM
     branch: main
     buildCommand: ""
-    staticPublishPath: "/"
+    # Use '.' to indicate repo root as the publish directory
+    staticPublishPath: "."
